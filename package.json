@@ -4,11 +4,12 @@
   "description": "chat-app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server/server.js"
   },
   "author": "LalaC",
   "license": "ISC",
   "dependencies": {
+    "colors": "^1.4.0",
     "concurrently": "^7.6.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",

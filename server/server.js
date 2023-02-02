@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const userRouter = require("./routes/userRoutes");
+// This will make the logs look cool
+require("colors");
 
 require("dotenv").config();
 
@@ -11,4 +13,6 @@ app.use(express.json());
 app.use("/users", userRouter);
 
 const port = process.env.PORT || 5556;
-app.listen(port, () => console.log("Server is up and running at port", port));
+app.listen(port, () =>
+  console.log(`Serever is up and running on port ${port}`.cyan)
+);
