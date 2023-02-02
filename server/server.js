@@ -1,7 +1,9 @@
 const express = require("express");
 const app = express();
 const userRouter = require("./routes/userRoutes");
+// This will make the logs look cool
 require("colors");
+
 require("dotenv").config();
 
 const dbConnect = require("./config/db");
