@@ -1,35 +1,34 @@
 import axios from "axios";
-import { useContext, useState } from "react";
-import { Context } from "../Context";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function Login() {
-  const { state, dispatch } = useContext(Context);
+const Register = () => {
+  const navigate = useNavigate();
 
   const [data, setData] = useState({
+    username: "",
     email: "",
     password: "",
   });
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    const response = await axios.post("/users/login", data);
-    console.log("🦩 ~ handleLogin ~ response", response);
+  const handleRegister = async () => {
+    const response = await axios.post("/users/register", data);
+    console.log("🦩 ~ handleRegister ~ response", response);
 
-    if (response.data.success) {
-      dispatch({
-        type: "login",
-        payload: response.data.user,
-      });
-    } else {
-      if (response.data.errorID === 1) alert("Wrong email or password");
-    }
+    if (response.data.success) navigate("/");
   };
 
-  console.log("~ Login ~ state", state);
   return (
     <div className=" flex justify-center">
       <div className="flex flex-col justify-center items-center gap-[20px] border-[2px] border-grey h-[500px] w-[500px]">
-        <h1>Welcome to ChatLHR!</h1>
+        <h1>Register</h1>
+        <input
+          type="username"
+          placeholder="Username"
+          value={data.username}
+          onChange={(e) => setData({ ...data, username: e.target.value })}
+          className="border-[1px] border-black h-[50px] w-[300px] p-[10px]"
+        />
         <input
           type="email"
           placeholder="Email"
@@ -45,14 +44,15 @@ function Login() {
           className="border-[1px] border-black h-[50px] w-[300px] p-[10px]"
         />
         <button
-          onClick={handleLogin}
+          type="submit"
+          onClick={handleRegister}
           className="border-[1px] border-black h-[50px] w-[120px]"
         >
-          Sign in
+          Register
         </button>
       </div>
     </div>
   );
-}
+};
 
-export default Login;
+export default Register;
