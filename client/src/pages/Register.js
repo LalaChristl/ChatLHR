@@ -9,6 +9,7 @@ const Register = () => {
     username: "",
     email: "",
     password: "",
+    image: "",
   });
 
   const handleRegister = async () => {
@@ -17,6 +18,8 @@ const Register = () => {
 
     if (response.data.success) navigate("/");
   };
+
+  const handleUpload = (e) => {};
 
   return (
     <div className=" flex justify-center">
@@ -43,6 +46,9 @@ const Register = () => {
           onChange={(e) => setData({ ...data, password: e.target.value })}
           className="border-[1px] border-black h-[50px] w-[300px] p-[10px]"
         />
+
+        <input type="file" access="image/*" onChange={handleUpload} />
+
         <button
           type="submit"
           onClick={handleRegister}
