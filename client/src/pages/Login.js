@@ -1,9 +1,12 @@
 import axios from "axios";
 import { useContext, useState } from "react";
 import { Context } from "../Context";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const { state, dispatch } = useContext(Context);
+
+  const navigate = useNavigate();
 
   const [data, setData] = useState({
     email: "",
@@ -23,6 +26,10 @@ function Login() {
     } else {
       if (response.data.errorID === 1) alert("Wrong email or password");
     }
+  };
+
+  const handleNotUser = () => {
+    navigate("/register");
   };
 
   console.log("~ Login ~ state", state);
@@ -50,6 +57,8 @@ function Login() {
         >
           Sign in
         </button>
+
+        <p onClick={handleNotUser}>Not a user yet?</p>
       </div>
     </div>
   );
