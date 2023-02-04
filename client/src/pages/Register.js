@@ -9,17 +9,48 @@ const Register = () => {
     username: "",
     email: "",
     password: "",
+    confirmPassword: "",
     image: "",
   });
+  const { username, email, password, confirmPassword, image } = data;
+
+  console.log(image);
 
   const handleRegister = async () => {
     const response = await axios.post("/users/register", data);
     console.log("🦩 ~ handleRegister ~ response", response);
 
+    if (password !== confirmPassword) alert("Passwords do not match");
+
     if (response.data.success) navigate("/");
   };
 
-  const handleUpload = (e) => {};
+  const handleUpload = (img) => {
+    console.log(img);
+
+    if (!img) return;
+
+    if (img.type === "image/png" || img.type === "image/jpeg") {
+      const data = new FormData();
+
+      data.append("file", img);
+      data.append("upload_preset", "chatLHR");
+      data.append("cloud_name", "du3mifkli");
+
+      fetch("https://api.cloudinary.com/v1_1/du3mifkli/image/upload", {
+        method: "post",
+        body: data,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("Uploaded", data.url);
+          setData((prev) => ({ ...prev, image: data.url }));
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
 
   return (
     <div className=" flex justify-center">
@@ -46,8 +77,21 @@ const Register = () => {
           onChange={(e) => setData({ ...data, password: e.target.value })}
           className="border-[1px] border-black h-[50px] w-[300px] p-[10px]"
         />
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          value={data.confirmPassword}
+          onChange={(e) =>
+            setData({ ...data, confirmPassword: e.target.value })
+          }
+          className="border-[1px] border-black h-[50px] w-[300px] p-[10px]"
+        />
 
-        <input type="file" access="image/*" onChange={handleUpload} />
+        <input
+          type="file"
+          accept="image/*"
+          onChange={(e) => handleUpload(e.target.files[0])}
+        />
 
         <button
           type="submit"
