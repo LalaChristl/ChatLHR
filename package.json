@@ -6,7 +6,6 @@
   "scripts": {
     "start": "nodemon server/server.js",
     "server": "nodemon ./server/server.js",
-
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server \" \"npm run client \" "
   },

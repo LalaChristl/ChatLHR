@@ -3,9 +3,9 @@ const app = express();
 const userRouter = require("./routes/userRoutes");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+
 // This will make the logs look cool
 require("colors");
-
 require("dotenv").config();
 
 const dbConnect = require("./config/db");
