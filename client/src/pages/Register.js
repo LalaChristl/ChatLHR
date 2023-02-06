@@ -1,9 +1,15 @@
+import "../styles/Loading.css";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import Loading from "../components/Loading";
+import { Context } from "../Context";
 
 const Register = () => {
   const navigate = useNavigate();
+
+  const { state, dispatch } = useContext(Context);
+  const { hidePopup } = state;
 
   const [data, setData] = useState({
     username: "",
@@ -12,9 +18,8 @@ const Register = () => {
     confirmPassword: "",
     image: "",
   });
-  const { username, email, password, confirmPassword, image } = data;
 
-  console.log(image);
+  const { password, confirmPassword } = data;
 
   const handleRegister = async () => {
     const response = await axios.post("/users/register", data);
@@ -26,9 +31,10 @@ const Register = () => {
   };
 
   const handleUpload = (img) => {
-    console.log(img);
-
     if (!img) return;
+
+    dispatch({ type: "loading_image" });
+    dispatch({ type: "hide_popup" });
 
     if (img.type === "image/png" || img.type === "image/jpeg") {
       const data = new FormData();
@@ -45,6 +51,7 @@ const Register = () => {
         .then((data) => {
           console.log("Uploaded", data.url);
           setData((prev) => ({ ...prev, image: data.url }));
+          dispatch({ type: "loading_image" });
         })
         .catch((err) => {
           console.log(err);
@@ -53,7 +60,7 @@ const Register = () => {
   };
 
   return (
-    <div className=" flex justify-center">
+    <div className="flex justify-center">
       <div className="flex flex-col justify-center items-center gap-[20px] border-[2px] border-grey h-[500px] w-[500px]">
         <h1>Register</h1>
         <input
@@ -92,6 +99,8 @@ const Register = () => {
           accept="image/*"
           onChange={(e) => handleUpload(e.target.files[0])}
         />
+
+        {hidePopup && <Loading />}
 
         <button
           type="submit"
