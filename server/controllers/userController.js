@@ -55,13 +55,13 @@ exports.register = async (req, res) => {
     const createUser = await User.create(req.body);
 
     res.status(201).json({
-      status: "Success",
+      status: "success",
       createUser,
     });
   } catch (error) {
     console.log("🦩 ~ Error from ~ register", error.message);
 
-    res.send({ success: false, error: error.message });
+    res.send({ status: "fail", error: error.message });
   }
 };
 
