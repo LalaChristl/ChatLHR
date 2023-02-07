@@ -20,6 +20,10 @@ const userSchema = new mongoose.Schema({
   image: {
     type: String,
   },
+  verified: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 module.exports = mongoose.model("User", userSchema);

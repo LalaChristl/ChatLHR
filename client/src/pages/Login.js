@@ -50,12 +50,10 @@ function Login() {
           value={data.password}
           onChange={(e) => setData({ ...data, password: e.target.value })}
         />
-         <p className="p-2">Forgot Passowrd</p>
+        <p className="p-2">Forgot Password?</p>
         <button onClick={handleLogin}>Sign In</button>
 
         <p onClick={handleNotUser}>Not a user yet?</p>
-
-       
       </div>
     </div>
   );
