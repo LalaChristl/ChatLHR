@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useState } from "react";
 
 export const Context = createContext();
 
@@ -30,11 +30,23 @@ const ContextProvider = ({ children }) => {
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  // State for the emoji input functionality
+  const [text, setText] = useState("");
+
+  // State to save the userName
+
+  const [userName, setUserName] = useState("");
+
   return (
     <Context.Provider
       value={{
         state,
         dispatch,
+        text,
+        setText,
+        userName,
+        setUserName,
       }}
     >
       {children}

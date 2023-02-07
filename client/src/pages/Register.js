@@ -9,11 +9,6 @@ import { Context } from "../Context";
 import addPhoto from "../images/add_photo.png";
 
 const Register = () => {
-  const navigate = useNavigate();
-
-  const { state, dispatch } = useContext(Context);
-  const { hidePopup } = state;
-
   const [data, setData] = useState({
     username: "",
     email: "",
@@ -22,11 +17,20 @@ const Register = () => {
     image: "",
   });
 
+  const navigate = useNavigate();
+
+  const { state, dispatch, setUserName, userName } = useContext(Context);
+  const { hidePopup } = state;
+
   const { password, confirmPassword } = data;
 
   const handleRegister = async () => {
     const response = await axios.post("/users/register", data);
     console.log("🦩 ~ handleRegister ~ response", response);
+
+    if (response.data.createUser.username) {
+      setUserName(response.data.createUser.username);
+    }
 
     if (password !== confirmPassword) alert("Passwords do not match");
 
@@ -123,7 +127,9 @@ const Register = () => {
           Register
         </button>
 
-        <p className="p-3" onClick={handleAlreadyUser}>Already a user?</p>
+        <p className="p-3" onClick={handleAlreadyUser}>
+          Already a user?
+        </p>
       </div>
     </div>
   );

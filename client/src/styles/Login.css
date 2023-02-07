@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap");
 
-html,
+/* html,
 body {
   height: 100%;
   margin: 0;
@@ -12,7 +12,7 @@ body {
   align-items: center;
   justify-content: center;
   font-family: "Montserrat", sans-serif;
-}
+} */
 
 .container-login {
   display: flex;
@@ -91,8 +91,8 @@ p:hover {
   color: #aa7bd8;
 }
 .p-2 {
-margin-top: -1rem;
-padding-right: 270px;
-font-size: 1.3rem;
-color: rgb(245, 237, 237);
+  margin-top: -1rem;
+  padding-right: 270px;
+  font-size: 1.3rem;
+  color: rgb(245, 237, 237);
 }
