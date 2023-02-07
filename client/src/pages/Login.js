@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "../styles/Login.css";
 
 function Login() {
-  const { state, dispatch } = useContext(Context);
+  const { state, dispatch, setUserName } = useContext(Context);
 
   const navigate = useNavigate();
 
@@ -19,7 +19,12 @@ function Login() {
     const response = await axios.post("/users/login", data);
     console.log("🦩 ~ handleLogin ~ response", response);
 
-    if (response.data.success) {
+    if (response.data.newUser.username) {
+      setUserName(response.data.newUser.username);
+    }
+
+    if (response.data.status === "Success") {
+      navigate("/chat");
       dispatch({
         type: "login",
         payload: response.data.user,
@@ -33,7 +38,6 @@ function Login() {
     navigate("/register");
   };
 
-  console.log("~ Login ~ state", state);
   return (
     <div className="body-login">
     <div className="container-login">
@@ -54,7 +58,9 @@ function Login() {
           className="input-login"
         />
         <p className="p-2">Forgot Password?</p>
-        <button className="button-login" onClick={handleLogin}>Sign In</button>
+        <button className="button-login" onClick={handleLogin}>
+          Sign In
+        </button>
 
         <p onClick={handleNotUser}>Not a user yet?</p>
       </div>
