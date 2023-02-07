@@ -35,23 +35,25 @@ function Login() {
 
   console.log("~ Login ~ state", state);
   return (
-    <div className="container">
-      <div className="container-2">
-        <h1>Welcome to ChatLHR!</h1>
+    <div className="container-login">
+      <div className="container-2-login">
+        <h1 className="h1-login">Welcome to ChatLHR!</h1>
         <input
           type="email"
           placeholder="Email"
           value={data.email}
           onChange={(e) => setData({ ...data, email: e.target.value })}
+          className="input-login"
         />
         <input
           type="password"
           placeholder="Password"
           value={data.password}
           onChange={(e) => setData({ ...data, password: e.target.value })}
+          className="input-login"
         />
         <p className="p-2">Forgot Password?</p>
-        <button onClick={handleLogin}>Sign In</button>
+        <button className="button-login" onClick={handleLogin}>Sign In</button>
 
         <p onClick={handleNotUser}>Not a user yet?</p>
       </div>

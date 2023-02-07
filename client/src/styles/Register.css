@@ -1,6 +1,6 @@
 .register-container {
   width: 500px;
-  height: 600px;
+  height: 710px;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -8,12 +8,33 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border: 1px rgb(100, 110, 177);
+
+  background-color: rgba(255, 255, 255, 0);
+  padding: 5rem;
+
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.h1-register {
+  font-size: 3rem;
+  color: rgb(215, 213, 213);
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px rgb(203, 161, 161);
 }
 
 .register-input {
-  margin: 0 0 10px 0;
-  border: 1px solid black;
-  padding: 10px;
+  width: 100%;
+  padding: 1.1rem;
+  margin-bottom: 2.5rem;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(248, 239, 239, 0.8);
+  color: #333;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
 }
 
 .register-image {
@@ -25,8 +46,34 @@
 }
 
 .register-button {
-  width: 100px;
-  border: 1px solid black;
-  padding: 10px;
-  margin: 0 0 10px 0;
+  padding: 1rem 2rem;
+  background-color: #9769c5;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+  margin-top: 16px;
 }
+
+.register-button:hover {
+  background-color: #667eea;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+
+.label-register{
+  font-size: 1.6rem;
+  color: rgb(255, 255, 255);
+  margin-bottom: 2rem;
+
+}
+
+
+
+
+
+
+
