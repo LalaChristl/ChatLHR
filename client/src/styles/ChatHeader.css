@@ -1,0 +1,10 @@
+.chat-header {
+  height: 15rem;
+  position: absolute;
+  top: 5%;
+  left: 32%;
+  width: 66%;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+  border: 1px solid;
+}
