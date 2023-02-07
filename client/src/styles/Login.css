@@ -1,12 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap");
 
+<<<<<<< HEAD
 /* html,
 body {
   height: 100%;
   margin: 0;
 }
+=======
+>>>>>>> 0fc85d5ad4a655787c54c395e2c09834bffd4974
 
-body {
+
+.body-login {
   background: linear-gradient(to right, #3d2656, #5c72d4);
   display: flex;
   align-items: center;

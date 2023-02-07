@@ -1,3 +1,13 @@
+.body-register{
+  height: 100vh;
+  background: linear-gradient(to right, #3d2656, #5c72d4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+
 .register-container {
   width: 500px;
   height: 710px;
@@ -70,6 +80,7 @@
   margin-bottom: 2rem;
 
 }
+
 
 
 
