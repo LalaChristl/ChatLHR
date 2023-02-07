@@ -35,6 +35,7 @@ function Login() {
 
   console.log("~ Login ~ state", state);
   return (
+    <div className="body-login">
     <div className="container-login">
       <div className="container-2-login">
         <h1 className="h1-login">Welcome to ChatLHR!</h1>
@@ -57,6 +58,7 @@ function Login() {
 
         <p onClick={handleNotUser}>Not a user yet?</p>
       </div>
+    </div>
     </div>
   );
 }
