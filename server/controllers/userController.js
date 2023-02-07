@@ -2,6 +2,8 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
+const sendEmail = require("../utilities/Email");
+
 const SALT_ROUNDS = 10;
 
 exports.login = async (req, res) => {
@@ -54,12 +56,46 @@ exports.register = async (req, res) => {
 
     const createUser = await User.create(req.body);
 
+    const token = jwt.sign(
+      {
+        id: createUser._id,
+      },
+      process.env.SECRET,
+      { expiresIn: "1h" }
+    );
+
+    sendEmail(token);
+
     res.status(201).json({
-      status: "Success",
+      status: "success",
       createUser,
     });
   } catch (error) {
     console.log("🦩 ~ Error from ~ register", error.message);
+
+    res.send({ status: "fail", error: error.message });
+  }
+};
+
+exports.emailConfirm = async (req, res) => {
+  try {
+    console.log("🦩 ~ hello emailConfirm ", req.body);
+
+    const token = req.body.token;
+
+    const decoded = jwt.verify(token, process.env.SECRET);
+    console.log("🦩 ~ emailConfirm ~ decoded", decoded);
+
+    const user = await User.findByIdAndUpdate(
+      { _id: decoded.id },
+      { verified: true },
+      { new: true }
+    );
+    console.log("🦩 ~ emailConfirm ~ user", user);
+
+    res.send({ success: true });
+  } catch (error) {
+    console.log("🦩 ~ emailConfirm ~ error", error.message);
 
     res.send({ success: false, error: error.message });
   }

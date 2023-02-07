@@ -1,0 +1,32 @@
+.register-container {
+  width: 500px;
+  height: 600px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.register-input {
+  margin: 0 0 10px 0;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.register-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 0 10px 0;
+}
+
+.register-button {
+  width: 100px;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 0 0 10px 0;
+}

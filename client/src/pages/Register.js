@@ -1,9 +1,12 @@
 import "../styles/Loading.css";
+import "./../styles/Register.css";
+
 import axios from "axios";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Loading from "../components/Loading";
 import { Context } from "../Context";
+import addPhoto from "../images/add_photo.png";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -27,7 +30,7 @@ const Register = () => {
 
     if (password !== confirmPassword) alert("Passwords do not match");
 
-    if (response.data.success) navigate("/");
+    if (response.data.status === "success") navigate("/");
   };
 
   const handleUpload = (img) => {
@@ -59,30 +62,34 @@ const Register = () => {
     }
   };
 
+  const handleAlreadyUser = () => {
+    navigate("/");
+  };
+
   return (
-    <div className="flex justify-center">
-      <div className="flex flex-col justify-center items-center gap-[20px] border-[2px] border-grey h-[500px] w-[500px]">
+    <div>
+      <div className="register-container">
         <h1>Register</h1>
         <input
           type="username"
           placeholder="Username"
           value={data.username}
           onChange={(e) => setData({ ...data, username: e.target.value })}
-          className="border-[1px] border-black h-[50px] w-[300px] p-[10px]"
+          className="register-input"
         />
         <input
           type="email"
           placeholder="Email"
           value={data.email}
           onChange={(e) => setData({ ...data, email: e.target.value })}
-          className="border-[1px] border-black h-[50px] w-[300px] p-[10px]"
+          className="register-input"
         />
         <input
           type="password"
           placeholder="Password"
           value={data.password}
           onChange={(e) => setData({ ...data, password: e.target.value })}
-          className="border-[1px] border-black h-[50px] w-[300px] p-[10px]"
+          className="register-input"
         />
         <input
           type="password"
@@ -91,24 +98,32 @@ const Register = () => {
           onChange={(e) =>
             setData({ ...data, confirmPassword: e.target.value })
           }
-          className="border-[1px] border-black h-[50px] w-[300px] p-[10px]"
+          className="register-input"
         />
 
-        <input
-          type="file"
-          accept="image/*"
-          onChange={(e) => handleUpload(e.target.files[0])}
-        />
+        <label>
+          Select your profile image
+          <input
+            type="file"
+            accept="image/*"
+            className="hidden"
+            onChange={(e) => handleUpload(e.target.files[0])}
+          />
+        </label>
+
+        <img className="register-image" src={data.image || addPhoto} alt="" />
 
         {hidePopup && <Loading />}
 
         <button
           type="submit"
           onClick={handleRegister}
-          className="border-[1px] border-black h-[50px] w-[120px]"
+          className="register-button"
         >
           Register
         </button>
+
+        <p onClick={handleAlreadyUser}>Already a user?</p>
       </div>
     </div>
   );
