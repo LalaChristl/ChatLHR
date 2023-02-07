@@ -14,14 +14,14 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-.container {
+.container-login {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
 }
 
-.container-2 {
+.container-2-login {
   background-color: rgba(255, 255, 255, 0);
   padding: 5rem;
 
@@ -33,15 +33,15 @@ body {
   margin: auto;
 }
 
-h1 {
+.h1-login {
   font-size: 3rem;
   color: rgb(215, 213, 213);
   margin-bottom: 2rem;
   text-shadow: 1px 1px rgb(203, 161, 161);
 }
 
-input[type="email"],
-input[type="password"] {
+.input-login[type="email"],
+.input-login[type="password"] {
   width: 100%;
   padding: 1.1rem;
   margin-bottom: 2.5rem;
@@ -54,13 +54,13 @@ input[type="password"] {
   transition: all 0.3s;
 }
 
-input[type="email"]:focus,
-input[type="password"]:focus {
+.input-login[type="email"]:focus,
+.input-login[type="password"]:focus {
   outline: none;
   box-shadow: 0 4px 6px rgba(255, 255, 255, 0.5);
 }
 
-button {
+.button-login {
   padding: 1rem 2rem;
   background-color: #9769c5;
   border: none;
@@ -73,7 +73,7 @@ button {
   margin-top: 16px;
 }
 
-button:hover {
+.button-login:hover {
   background-color: #667eea;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }

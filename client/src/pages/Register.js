@@ -69,7 +69,7 @@ const Register = () => {
   return (
     <div>
       <div className="register-container">
-        <h1>Register</h1>
+        <h1 className="h1-register">Register</h1>
         <input
           type="username"
           placeholder="Username"
@@ -101,7 +101,7 @@ const Register = () => {
           className="register-input"
         />
 
-        <label>
+        <label className="label-register">
           Select your profile image
           <input
             type="file"
@@ -123,7 +123,7 @@ const Register = () => {
           Register
         </button>
 
-        <p onClick={handleAlreadyUser}>Already a user?</p>
+        <p className="p-3" onClick={handleAlreadyUser}>Already a user?</p>
       </div>
     </div>
   );
