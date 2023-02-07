@@ -67,7 +67,7 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className="body-register">
       <div className="register-container">
         <h1 className="h1-register">Register</h1>
         <input

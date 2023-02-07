@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
+import "../styles/Chat.css";
 
 const socket = io.connect("http://localhost:5555");
 
@@ -39,13 +40,15 @@ function Chat() {
   };
 
   return (
-    <div>
-      <h1>Chat with a Friend</h1>
-      <input onChange={handleJoinRoom} type="text" placeholder="Room Id..." />
-      <button onClick={joinRoom}>Join Room</button>
-      <input type="text" onChange={handleMessage} placeholder="message" />
-      <button onClick={handleSendMessage}>Sent message</button>
-      <h1>{recievedMessage}</h1>
+    <div className="chat-container1"> 
+    <div className="chat-container2">
+      <h1 className="chat-title">Chat with a Friend</h1>
+      <input className="join-room-input" onChange={handleJoinRoom} type="text" placeholder="Room Id..." />
+      <button className="join-room-button" onClick={joinRoom}>Join Room</button>
+      <input className="message-input" type="text" onChange={handleMessage} placeholder="message" />
+      <button className="send-message-button" onClick={handleSendMessage}>Sent message</button>
+      <h1 className="h1-message">{recievedMessage}</h1>
+    </div>
     </div>
   );
 }
