@@ -10,13 +10,18 @@ import ChatHeader from "../components/ChatHeader";
 function Chat() {
   const socket = io.connect("http://localhost:5555");
   // This is coming from the emoji input
-  const { text, setText, userName } = useContext(Context);
+  const {
+    data,
+    text,
+    setText,
+    userName,
+    messageArr,
+    setMessageArr,
+    setShowChat,
+    showChat,
+  } = useContext(Context);
 
   const [room, setRoom] = useState("");
-
-  const [showChat, setShowChat] = useState(false);
-
-  const [messageArr, setMessageArr] = useState([]);
 
   const handleJoinRoom = (e) => {
     setRoom(e.target.value);
@@ -34,6 +39,7 @@ function Chat() {
       message: text,
       room: room,
       writer: userName,
+      image: data.image,
       time:
         new Date(Date.now()).getHours() +
         ":" +
@@ -44,6 +50,8 @@ function Chat() {
 
     setText("");
   };
+
+  console.log(messageArr);
 
   useEffect(() => {
     socket.on("get_message", (data) => {
@@ -81,7 +89,14 @@ function Chat() {
                       key={i}
                       className={el.writer === userName ? "me" : "other"}
                     >
-                      <span> {el.message} </span>
+                      {el.writer !== userName ? (
+                        <span className="writer"> {el.writer} </span>
+                      ) : (
+                        ""
+                      )}
+
+                      <span className="the-text"> {el.message} </span>
+                      <img className="user-img" src={el.image} alt="user" />
                     </div>
                   );
                 })}

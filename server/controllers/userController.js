@@ -156,3 +156,16 @@ exports.deleteUser = async (req, res) => {
     res.send({ success: false, error: error.message });
   }
 };
+
+exports.deleteAllUsers = async (req, res) => {
+  try {
+    await User.deleteMany();
+
+    res.status(200).json({
+      status: "Success",
+      data: null,
+    });
+  } catch (error) {
+    res.send({ success: false, error: error.message });
+  }
+};

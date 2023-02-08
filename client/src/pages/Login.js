@@ -26,6 +26,7 @@ function Login() {
           type: "login",
           payload: response.data.user,
         });
+        setUserName(response.data.newUser.username);
       } else if (response.data.status === "fail") {
         console.log(":flamingo: ~ handleLogin ~ response", response);
         alert("Wrong email or password");

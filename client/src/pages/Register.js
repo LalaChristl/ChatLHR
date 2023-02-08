@@ -2,24 +2,16 @@ import "../styles/Loading.css";
 import "./../styles/Register.css";
 
 import axios from "axios";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Loading from "../components/Loading";
 import { Context } from "../Context";
 import addPhoto from "../images/add_photo.png";
 
 const Register = () => {
-  const [data, setData] = useState({
-    username: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    image: "",
-  });
-
   const navigate = useNavigate();
 
-  const { state, dispatch, setUserName } = useContext(Context);
+  const { state, dispatch, data, setData } = useContext(Context);
   const { hidePopup } = state;
 
   const { password, confirmPassword } = data;
@@ -27,10 +19,6 @@ const Register = () => {
   const handleRegister = async () => {
     const response = await axios.post("/users/register", data);
     console.log("🦩 ~ handleRegister ~ response", response);
-
-    if (response.data.createUser.username) {
-      setUserName(response.data.createUser.username);
-    }
 
     if (password !== confirmPassword) alert("Passwords do not match");
 
