@@ -1,28 +1,8 @@
 const nodemailer = require("nodemailer");
 require("dotenv").config();
 
-function getSubject(template) {
-  switch (template) {
-    case "welcome":
-      return "Welcome to ChatLHR";
-    case "forgotpass":
-      return "Instructions on how to change your password for ChatLHR";
-    default:
-      "";
-  }
-}
-
 // async..await is not allowed in global scope, must use a wrapper
-module.exports = async function main(token, template) {
-  const data = {
-    from: '"Lala 🦩" <larosechristl@gmail.com>', // sender address
-    to: "lesleyannchristl@gmail.com", // list of receivers
-    subject: getSubject(template), // Subject line
-    text: "Hello world?", // plain text body
-    html: `<b>Welcome to our chat app</b>
-    <p>click <a href="http://localhost:3000/emailconfirm/${token}">here</a> to verify your email</p>
-  `,
-  };
+module.exports = async function main(token) {
   try {
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
@@ -36,7 +16,15 @@ module.exports = async function main(token, template) {
     });
 
     // send mail with defined transport object
-    let info = await transporter.sendMail(data);
+    let info = await transporter.sendMail({
+      from: '"Lala 🦩" <larosechristl@gmail.com>', // sender address
+      to: "lesleyannchristl@gmail.com", // list of receivers
+      subject: "Hello ✔", // Subject line
+      text: "Hello world?", // plain text body
+      html: `<b>Instructions to change your password</b>
+        <p>click <a href="http://localhost:3000/changepass/${token}">here</a> to change your password</p>
+      `, // html body
+    });
 
     console.log("Message sent: %s", info.messageId);
     // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>

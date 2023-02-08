@@ -11,7 +11,7 @@ function EmailConfirm() {
       const response = await axios.post("/users/emailconfirm", { token });
       console.log("🦩 ~ getData ~ response", response);
 
-      if (response.data.success) {
+      if (response.data.status === "success") {
         setTimeout(() => {
           navigate("/");
         }, 3000);

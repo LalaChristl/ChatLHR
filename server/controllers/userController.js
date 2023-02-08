@@ -1,9 +1,8 @@
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-
 const sendEmail = require("../utilities/Email");
-const sendEmailFP = require("../utilities/EmailFP");
+const EmailCP = require("../utilities/EmailCP");
 
 const SALT_ROUNDS = 10;
 
@@ -115,13 +114,45 @@ exports.forgotPass = async (req, res) => {
     });
     console.log("🦩 ~ exports.forgotPass= ~ user", user);
 
-    sendEmailFP("Hello", "forgotpass");
+    const token = jwt.sign({ id: user._id }, process.env.SECRET, {
+      expiresIn: "1h",
+    });
+
+    EmailCP(token);
 
     res.status(201).json({
       status: "success",
     });
   } catch (error) {
     console.log("🦩 ~ forgotPass ~ error", error.message);
+
+    res.send({ status: "fail", error: error.message });
+  }
+};
+
+exports.changePass = async (req, res) => {
+  try {
+    console.log("🦩 ~ hello changePass ", req.body);
+
+    const decoded = jwt.verify(req.body.token, process.env.SECRET);
+    console.log("🦩 ~ exports.changePass= ~ decoded", decoded);
+
+    const salt = await bcrypt.genSalt(SALT_ROUNDS);
+    const hashedPass = await bcrypt.hash(req.body.password, salt);
+    console.log("🦩 ~ exports.changePass= ~ hashedPass", hashedPass);
+
+    const updatedPass = await User.findByIdAndUpdate(
+      decoded.id,
+      { password: hashedPass },
+      { new: true }
+    );
+    console.log("🦩 ~ exports.changePass= ~ updatedPass", updatedPass);
+
+    res.status(201).json({
+      status: "success",
+    });
+  } catch (error) {
+    console.log("🦩 ~ changePass ~ error", error.message);
 
     res.send({ status: "fail", error: error.message });
   }
