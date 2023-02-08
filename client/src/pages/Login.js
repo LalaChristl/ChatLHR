@@ -20,18 +20,21 @@ function Login() {
 
       console.log("🦩 ~ handleLogin ~ response", response);
 
-    if (response.data.newUser.username) {
-      setUserName(response.data.newUser.username);
-    }
-
-    if (response.data.status === "Success") {
-      navigate("/chat");
-      dispatch({
-        type: "login",
-        payload: response.data.user,
-      });
-    } else {
-      if (response.data.errorID === 1) alert("Wrong email or password");
+      if (response.data.status === "success") {
+        navigate("/chat");
+        dispatch({
+          type: "login",
+          payload: response.data.user,
+        });
+        setUserName(response.data.newUser.username);
+      } else if (response.data.status === "fail") {
+        console.log(":flamingo: ~ handleLogin ~ response", response);
+        alert("Wrong email or password");
+      }
+    } catch (err) {
+      console.log("Err", err);
+      if (err.response.status === 401) {
+      }
     }
   };
 
