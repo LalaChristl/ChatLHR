@@ -25,7 +25,7 @@ const notify = () =>
 const Register = () => {
   const navigate = useNavigate();
 
-  const { state, dispatch, data, setData } = useContext(Context);
+  const { setUserName, state, dispatch, data, setData } = useContext(Context);
   const { hidePopup } = state;
 
   const { password, confirmPassword } = data;
@@ -42,7 +42,6 @@ const Register = () => {
       notify();
       return;
     }
-
 
     if (response.data.status === "success") navigate("/");
     else {
@@ -80,8 +79,7 @@ const Register = () => {
   };
 
   const handleAlreadyUser = () => {
-    navigate("/login");
-    
+    navigate("/");
   };
 
   return (

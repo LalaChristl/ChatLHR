@@ -8,9 +8,9 @@ router.delete("/delete", userController.deleteAllUsers);
 
 router.post("/register", userController.register);
 router.post("/login", userController.login);
-router.post("/forgotpass", userController.forgotPass);
-
 router.post("/emailconfirm", userController.emailConfirm);
+router.post("/forgotpass", userController.forgotPass);
+router.post("/changepass", userController.changePass);
 router.get("/list", userController.getAllUsers);
 router.patch("/:id", userController.updateUser);
 router.delete("/:id", userController.deleteUser);
