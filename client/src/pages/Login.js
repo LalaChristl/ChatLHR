@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "../styles/Login.css";
 
 function Login() {
-  const { state, dispatch, setUserName } = useContext(Context);
+  const { dispatch, setUserName } = useContext(Context);
 
   const navigate = useNavigate();
 
@@ -14,14 +14,14 @@ function Login() {
     password: "",
   });
 
-  const handleLogin = async (e) => {
-    // e.preventDefault();
-    console.log("Hello");
-    const response = await axios.post("/users/login", data);
-    console.log("🦩 ~ handleLogin ~ response", response);
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post("/users/login", data);
+
+      console.log("🦩 ~ handleLogin ~ response", response);
 
     if (response.data.newUser.username) {
-      setUserName(response?.data.newUser.username);
+      setUserName(response.data.newUser.username);
     }
 
     if (response.data.status === "Success") {
@@ -30,11 +30,9 @@ function Login() {
         type: "login",
         payload: response.data.user,
       });
+    } else {
+      if (response.data.errorID === 1) alert("Wrong email or password");
     }
-    // else if (response.data.status === "fail") {
-    //   alert("Wrong email or password");
-    //   console.log("🦩 ~ handleLogin ~ response", response);
-    // }
   };
 
   const handleNotUser = () => {

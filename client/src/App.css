@@ -12,4 +12,5 @@ html {
 
 body {
   font-size: 1.6rem;
+  background: linear-gradient(to right, #3d2656, #5c72d4);
 }

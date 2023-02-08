@@ -19,8 +19,6 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(cors());
 
-app.use("/users", userRouter);
-
 const io = new Server(server, {
   cors: {
     origin: "http://localhost:3000",
@@ -36,6 +34,8 @@ io.on("connection", (socket) => {
     socket.to(data.room).emit("get_message", data);
   });
 });
+
+app.use("/users", userRouter);
 
 const port = process.env.PORT || 5556;
 server.listen(port, () =>

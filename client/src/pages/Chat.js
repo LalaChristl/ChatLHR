@@ -4,6 +4,8 @@ import io from "socket.io-client";
 import Scroll from "react-scroll-to-bottom";
 import Emoji from "../components/InputEmoji";
 import { Context } from "../Context";
+import ActiveUsers from "../components/ActiveUsers";
+import ChatHeader from "../components/ChatHeader";
 
 function Chat() {
   const socket = io.connect("http://localhost:5555");
@@ -19,8 +21,6 @@ function Chat() {
   const handleJoinRoom = (e) => {
     setRoom(e.target.value);
   };
-
-  console.log(showChat);
 
   const joinRoom = () => {
     if (room) {
@@ -51,10 +51,8 @@ function Chat() {
     });
   }, [socket]);
 
-  console.log(messageArr);
   return (
     <div className="chat-container">
-      <h1 className="chat-header">Chat with a Friend</h1>
       {!showChat && (
         <div className="join-room-container">
           {/* <input
@@ -86,27 +84,31 @@ function Chat() {
           </button>
         </div>
       )}
-
       {showChat && (
-        <div className="send-message-conatiner">
-          <Scroll className="scroll">
-            <div className="text-container">
-              {messageArr.map((el, i) => {
-                return (
-                  <div
-                    key={i}
-                    className={el.writer === userName ? "me" : "other"}
-                  >
-                    <span> {el.message} </span>
-                  </div>
-                );
-              })}
+        <>
+          <ChatHeader />
+
+          <ActiveUsers />
+          <div className="send-message-conatiner">
+            <Scroll className="scroll">
+              <div className="text-container">
+                {messageArr.map((el, i) => {
+                  return (
+                    <div
+                      key={i}
+                      className={el.writer === userName ? "me" : "other"}
+                    >
+                      <span> {el.message} </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </Scroll>
+            <div className="message-input-container">
+              <Emoji handleOnEnter={handleSendMessage} />
             </div>
-          </Scroll>
-          <div className="message-input-container">
-            <Emoji handleOnEnter={handleSendMessage} />
           </div>
-        </div>
+        </>
       )}
     </div>
   );

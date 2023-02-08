@@ -1,0 +1,36 @@
+.chat-header {
+  height: 15rem;
+  position: absolute;
+  top: 5%;
+  left: 32%;
+  width: 66%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+  border: 1px solid;
+}
+
+.slogan {
+  font-size: 3.5rem;
+}
+
+.btn-leave-chat {
+  font-size: 1.6rem;
+  background-color: #9769c5;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s;
+}
+
+.btn-leave-chat:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+}
+
+.btn-leave-chat:active {
+  transform: translateY(0px);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}

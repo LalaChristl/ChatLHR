@@ -19,7 +19,7 @@ const Register = () => {
 
   const navigate = useNavigate();
 
-  const { state, dispatch, setUserName, userName } = useContext(Context);
+  const { state, dispatch, setUserName } = useContext(Context);
   const { hidePopup } = state;
 
   const { password, confirmPassword } = data;
