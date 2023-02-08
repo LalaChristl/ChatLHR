@@ -1,36 +1,36 @@
 .chat-header {
-  height: 15rem;
-  position: absolute;
-  top: 5%;
-  left: 32%;
-  width: 66%;
+  background: linear-gradient(to right, #3d2656, #5c72d4);
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.8);
-  border-radius: 5px;
-  border: 1px solid;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .slogan {
-  font-size: 3.5rem;
+  color: #fff;
+  font-size: 2rem;
+  margin: 0;
+  font-weight: 700;
 }
 
 .btn-leave-chat {
-  font-size: 1.6rem;
-  background-color: #9769c5;
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
-  transition: all 0.2s;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.3rem;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
 }
 
 .btn-leave-chat:hover {
+  background-color: #9769c5;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
-}
-
-.btn-leave-chat:active {
-  transform: translateY(0px);
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
 }

@@ -20,7 +20,7 @@
   transform: translate(-50%, -50%);
   border: 1px rgb(100, 110, 177);
 
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0.6);
   padding: 5rem;
 
   border-radius: 10px;
@@ -29,9 +29,9 @@
 
 .h1-register {
   font-size: 3rem;
-  color: rgb(215, 213, 213);
+  color: rgb(34, 31, 31);
   margin-bottom: 2rem;
-  text-shadow: 1px 1px rgb(203, 161, 161);
+  text-shadow: 1px 1px rgb(110, 80, 80);
 }
 
 .register-input {
@@ -76,16 +76,18 @@
 
 .label-register{
   font-size: 1.6rem;
-  color: rgb(255, 255, 255);
+  color: rgb(42, 38, 38);
   margin-bottom: 2rem;
 
 }
 
+.register-input:focus {
+  outline: none;
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.5);
+}
 
-
-
-
-
-
-
-
+.p-3 {
+  font-size: 1.3rem;
+  padding-top: 30px;
+  
+}

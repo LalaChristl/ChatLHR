@@ -87,7 +87,7 @@ function Login() {
             Sign In
           </button>
 
-          <p className="p-3" onClick={handleNotUser}>Not a user yet?</p>
+          <p className="p-33" onClick={handleNotUser}>Not a user yet?</p>
           <ToastContainer />
         </div>
       </div>
