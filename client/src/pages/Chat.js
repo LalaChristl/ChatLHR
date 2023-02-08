@@ -22,8 +22,6 @@ function Chat() {
     setRoom(e.target.value);
   };
 
-  console.log(showChat);
-
   const joinRoom = () => {
     if (room) {
       socket.emit("join_room", room);
@@ -53,7 +51,6 @@ function Chat() {
     });
   }, [socket]);
 
-  console.log(messageArr);
   return (
     <div className="chat-container">
       {!showChat && (

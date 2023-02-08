@@ -8,18 +8,19 @@ const SALT_ROUNDS = 10;
 
 exports.login = async (req, res) => {
   try {
-    console.log("🦩 ~ Hello from ~ login", req.body);
-
     const user = await User.findOne({
       email: req.body.email,
     }).select("-__v");
     console.log("user", user);
 
+    if (!user) {
+      throw new Error("Wrong password or email");
+    }
+
     const passwordMatch = await bcrypt.compare(
       req.body.password,
       user.password
     );
-    console.log("🦩 ~ exports.login= ~ passwordMatch", passwordMatch);
 
     if (passwordMatch) {
       const newUser = user.toObject();
@@ -31,14 +32,15 @@ exports.login = async (req, res) => {
       });
       res.cookie("lhr", token);
       res.status(201).json({
-        status: "Success",
+        status: "success",
         newUser,
       });
     }
   } catch (error) {
-    console.log("🦩 ~ Error from ~ login", error.message);
-
-    res.send({ success: false, error: error.message });
+    res.send({
+      status: "fail",
+      message: error.message,
+    });
   }
 };
 
