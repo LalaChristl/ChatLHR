@@ -1,22 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap");
 
-<<<<<<< HEAD
-/* html,
-body {
+.body-login {
   height: 100%;
   margin: 0;
-}
-=======
->>>>>>> 0fc85d5ad4a655787c54c395e2c09834bffd4974
-
-
-.body-login {
   background: linear-gradient(to right, #3d2656, #5c72d4);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: "Montserrat", sans-serif;
-} */
+}
 
 .container-login {
   display: flex;
@@ -26,9 +18,8 @@ body {
 }
 
 .container-2-login {
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0.6);
   padding: 5rem;
-
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   text-align: center;
@@ -39,7 +30,7 @@ body {
 
 .h1-login {
   font-size: 3rem;
-  color: rgb(215, 213, 213);
+  color: rgb(0, 0, 0);
   margin-bottom: 2rem;
   text-shadow: 1px 1px rgb(203, 161, 161);
 }
@@ -82,9 +73,9 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-p {
+.p-3 {
   font-size: 1.3rem;
-  color: rgb(245, 237, 237);
+  color: #333;
   margin-top: 2rem;
   cursor: pointer;
   text-decoration: underline;
@@ -98,5 +89,15 @@ p:hover {
   margin-top: -1rem;
   padding-right: 270px;
   font-size: 1.3rem;
-  color: rgb(245, 237, 237);
+  color: #333;
+}
+
+.Toastify__toast-container {
+  top: 100px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 330px;
+
 }

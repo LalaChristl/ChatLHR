@@ -8,6 +8,20 @@ import Loading from "../components/Loading";
 import { Context } from "../Context";
 import addPhoto from "../images/add_photo.png";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const notify = () =>
+  toast("Passwords do not match!", {
+    autoClose: false,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+  });
+
 const Register = () => {
   const [data, setData] = useState({
     username: "",
@@ -32,7 +46,10 @@ const Register = () => {
       setUserName(response.data.createUser.username);
     }
 
-    if (password !== confirmPassword) alert("Passwords do not match");
+    if (password !== confirmPassword) {
+      notify();
+      return;
+    }
 
     if (response.data.status === "success") navigate("/");
   };
@@ -67,7 +84,8 @@ const Register = () => {
   };
 
   const handleAlreadyUser = () => {
-    navigate("/");
+    navigate("/login");
+    
   };
 
   return (
@@ -130,6 +148,7 @@ const Register = () => {
         <p className="p-3" onClick={handleAlreadyUser}>
           Already a user?
         </p>
+        <ToastContainer />
       </div>
     </div>
   );

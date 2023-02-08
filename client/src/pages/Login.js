@@ -4,6 +4,21 @@ import { Context } from "../Context";
 import { useNavigate } from "react-router-dom";
 import "../styles/Login.css";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const notify = () =>
+toast('Wrong Email or Password!', {
+
+  autoClose: false,
+  hideProgressBar: true,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: "light",
+  });
+
 function Login() {
   const { dispatch, setUserName } = useContext(Context);
 
@@ -28,7 +43,7 @@ function Login() {
         });
       } else if (response.data.status === "fail") {
         console.log(":flamingo: ~ handleLogin ~ response", response);
-        alert("Wrong email or password");
+        notify();
       }
     } catch (err) {
       console.log("Err", err);
@@ -65,7 +80,8 @@ function Login() {
             Sign In
           </button>
 
-          <p onClick={handleNotUser}>Not a user yet?</p>
+          <p className="p-3" onClick={handleNotUser}>Not a user yet?</p>
+          <ToastContainer />
         </div>
       </div>
     </div>
