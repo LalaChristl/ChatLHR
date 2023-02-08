@@ -55,13 +55,30 @@ function Chat() {
     <div className="chat-container">
       {!showChat && (
         <div className="join-room-container">
-          <input
+          {/* <input
             className="room-input"
             onChange={handleJoinRoom}
             type="text"
             placeholder="Room Id..."
             value={room}
-          />
+          /> */}
+          <div className="room-input">
+            <label htmlFor="room">Room</label>
+            <select
+              className="room-select"
+              name="room"
+              id="room"
+              onChange={handleJoinRoom}
+            >
+              <option value="one">One</option>
+              <option value="two">Two</option>
+              <option value="three">Three</option>
+              <option value="four">Four</option>
+              <option value="five">Five</option>
+              <option value="six">Six</option>
+            </select>
+          </div>
+
           <button className="btn-join-room" onClick={joinRoom}>
             Join Room
           </button>

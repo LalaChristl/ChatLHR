@@ -28,13 +28,12 @@ const Register = () => {
     const response = await axios.post("/users/register", data);
     console.log("🦩 ~ handleRegister ~ response", response);
 
-    if (response.data.createUser.username) {
-      setUserName(response.data.createUser.username);
-    }
-
     if (password !== confirmPassword) alert("Passwords do not match");
 
     if (response.data.status === "success") navigate("/");
+    else {
+      if (response.data.status === "fail") alert("Wrong email or password");
+    }
   };
 
   const handleUpload = (img) => {

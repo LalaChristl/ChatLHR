@@ -13,10 +13,11 @@
 
 .join-room-container {
   top: 30%;
+  left: 38%;
   display: flex;
   flex-direction: column;
   gap: 5rem;
-  padding: 2rem;
+  padding: 10rem;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
   border-radius: 5px;
 }
@@ -34,9 +35,14 @@
 }
 
 .room-input {
-  font-size: 2rem;
-  padding: 0.5rem 1rem;
+  font-size: 3rem;
+}
+
+.room-select {
+  width: 10.5rem;
   border-radius: 5px;
+  margin-left: 20px;
+  background-color: #d8b3fd;
 }
 
 .room-input:focus {
