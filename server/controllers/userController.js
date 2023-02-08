@@ -38,7 +38,7 @@ exports.login = async (req, res) => {
   } catch (error) {
     console.log("🦩 ~ Error from ~ login", error.message);
 
-    res.send({ success: false, error: error.message });
+    res.send({ status: "fail", error: error.message });
   }
 };
 

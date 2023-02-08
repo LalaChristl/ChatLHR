@@ -39,8 +39,13 @@
 
 .room-input {
   font-size: 2rem;
-  padding: 0.5rem 1rem;
+}
+
+.room-select {
+  width: 8rem;
   border-radius: 5px;
+  margin-left: 20px;
+  background-color: #d8b3fd;
 }
 
 .room-input:focus {

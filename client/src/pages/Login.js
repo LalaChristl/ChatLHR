@@ -15,12 +15,13 @@ function Login() {
   });
 
   const handleLogin = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
+    console.log("Hello");
     const response = await axios.post("/users/login", data);
     console.log("🦩 ~ handleLogin ~ response", response);
 
     if (response.data.newUser.username) {
-      setUserName(response.data.newUser.username);
+      setUserName(response?.data.newUser.username);
     }
 
     if (response.data.status === "Success") {
@@ -29,9 +30,11 @@ function Login() {
         type: "login",
         payload: response.data.user,
       });
-    } else {
-      if (response.data.errorID === 1) alert("Wrong email or password");
     }
+    // else if (response.data.status === "fail") {
+    //   alert("Wrong email or password");
+    //   console.log("🦩 ~ handleLogin ~ response", response);
+    // }
   };
 
   const handleNotUser = () => {
@@ -40,31 +43,31 @@ function Login() {
 
   return (
     <div className="body-login">
-    <div className="container-login">
-      <div className="container-2-login">
-        <h1 className="h1-login">Welcome to ChatLHR!</h1>
-        <input
-          type="email"
-          placeholder="Email"
-          value={data.email}
-          onChange={(e) => setData({ ...data, email: e.target.value })}
-          className="input-login"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={data.password}
-          onChange={(e) => setData({ ...data, password: e.target.value })}
-          className="input-login"
-        />
-        <p className="p-2">Forgot Password?</p>
-        <button className="button-login" onClick={handleLogin}>
-          Sign In
-        </button>
+      <div className="container-login">
+        <div className="container-2-login">
+          <h1 className="h1-login">Welcome to ChatLHR!</h1>
+          <input
+            type="email"
+            placeholder="Email"
+            value={data.email}
+            onChange={(e) => setData({ ...data, email: e.target.value })}
+            className="input-login"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={data.password}
+            onChange={(e) => setData({ ...data, password: e.target.value })}
+            className="input-login"
+          />
+          <p className="p-2">Forgot Password?</p>
+          <button className="button-login" onClick={handleLogin}>
+            Sign In
+          </button>
 
-        <p onClick={handleNotUser}>Not a user yet?</p>
+          <p onClick={handleNotUser}>Not a user yet?</p>
+        </div>
       </div>
-    </div>
     </div>
   );
 }
