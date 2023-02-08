@@ -10,13 +10,18 @@ import ChatHeader from "../components/ChatHeader";
 function Chat() {
   const socket = io.connect("http://localhost:5555");
   // This is coming from the emoji input
-  const { text, setText, userName } = useContext(Context);
+  const {
+    data,
+    text,
+    setText,
+    userName,
+    messageArr,
+    setMessageArr,
+    setShowChat,
+    showChat,
+  } = useContext(Context);
 
   const [room, setRoom] = useState("");
-
-  const [showChat, setShowChat] = useState(false);
-
-  const [messageArr, setMessageArr] = useState([]);
 
   const handleJoinRoom = (e) => {
     setRoom(e.target.value);
@@ -34,6 +39,7 @@ function Chat() {
       message: text,
       room: room,
       writer: userName,
+      image: data.image,
       time:
         new Date(Date.now()).getHours() +
         ":" +
@@ -45,6 +51,8 @@ function Chat() {
     setText("");
   };
 
+  console.log(messageArr);
+
   useEffect(() => {
     socket.on("get_message", (data) => {
       setMessageArr((prev) => [...prev, data]);
@@ -55,13 +63,30 @@ function Chat() {
     <div className="chat-container">
       {!showChat && (
         <div className="join-room-container">
-          <input
+          {/* <input
             className="room-input"
             onChange={handleJoinRoom}
             type="text"
             placeholder="Room Id..."
             value={room}
-          />
+          /> */}
+          <div className="room-input">
+            <label htmlFor="room">Room</label>
+            <select
+              className="room-select"
+              name="room"
+              id="room"
+              onChange={handleJoinRoom}
+            >
+              <option value="one">One</option>
+              <option value="two">Two</option>
+              <option value="three">Three</option>
+              <option value="four">Four</option>
+              <option value="five">Five</option>
+              <option value="six">Six</option>
+            </select>
+          </div>
+
           <button className="btn-join-room" onClick={joinRoom}>
             Join Room
           </button>
@@ -81,7 +106,14 @@ function Chat() {
                       key={i}
                       className={el.writer === userName ? "me" : "other"}
                     >
-                      <span> {el.message} </span>
+                      {el.writer !== userName ? (
+                        <span className="writer"> {el.writer} </span>
+                      ) : (
+                        ""
+                      )}
+
+                      <span className="the-text"> {el.message} </span>
+                      <img className="user-img" src={el.image} alt="user" />
                     </div>
                   );
                 })}

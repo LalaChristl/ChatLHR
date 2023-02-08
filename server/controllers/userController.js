@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const sendEmail = require("../utilities/Email");
+const sendEmailFP = require("../utilities/EmailFP");
 
 const SALT_ROUNDS = 10;
 
@@ -95,11 +96,34 @@ exports.emailConfirm = async (req, res) => {
     );
     console.log("🦩 ~ emailConfirm ~ user", user);
 
-    res.send({ success: true });
+    res.status(201).json({
+      status: "success",
+    });
   } catch (error) {
     console.log("🦩 ~ emailConfirm ~ error", error.message);
 
-    res.send({ success: false, error: error.message });
+    res.send({ status: "fail", error: error.message });
+  }
+};
+
+exports.forgotPass = async (req, res) => {
+  try {
+    console.log("🦩 ~ hello forgotPass ", req.body);
+
+    const user = await User.findOne({
+      email: req.body.email,
+    });
+    console.log("🦩 ~ exports.forgotPass= ~ user", user);
+
+    sendEmailFP("Hello", "forgotpass");
+
+    res.status(201).json({
+      status: "success",
+    });
+  } catch (error) {
+    console.log("🦩 ~ forgotPass ~ error", error.message);
+
+    res.send({ status: "fail", error: error.message });
   }
 };
 
@@ -153,6 +177,19 @@ exports.deleteUser = async (req, res) => {
   } catch (error) {
     console.log("🦩 ~ Error from ~ deleteUser", error.message);
 
+    res.send({ success: false, error: error.message });
+  }
+};
+
+exports.deleteAllUsers = async (req, res) => {
+  try {
+    await User.deleteMany();
+
+    res.status(200).json({
+      status: "Success",
+      data: null,
+    });
+  } catch (error) {
     res.send({ success: false, error: error.message });
   }
 };

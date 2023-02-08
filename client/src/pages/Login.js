@@ -41,6 +41,7 @@ function Login() {
           type: "login",
           payload: response.data.user,
         });
+        setUserName(response.data.newUser.username);
       } else if (response.data.status === "fail") {
         console.log(":flamingo: ~ handleLogin ~ response", response);
         notify();
@@ -54,6 +55,10 @@ function Login() {
 
   const handleNotUser = () => {
     navigate("/register");
+  };
+
+  const handleForgotPass = () => {
+    navigate("/forgotpass");
   };
 
   return (
@@ -75,7 +80,9 @@ function Login() {
             onChange={(e) => setData({ ...data, password: e.target.value })}
             className="input-login"
           />
-          <p className="p-2">Forgot Password?</p>
+          <p className="p-2" onClick={handleForgotPass}>
+            Forgot Password?
+          </p>
           <button className="button-login" onClick={handleLogin}>
             Sign In
           </button>
