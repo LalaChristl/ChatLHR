@@ -42,6 +42,10 @@ function Login() {
     navigate("/register");
   };
 
+  const handleForgotPass = () => {
+    navigate("/forgotpass");
+  };
+
   return (
     <div className="body-login">
       <div className="container-login">
@@ -61,7 +65,9 @@ function Login() {
             onChange={(e) => setData({ ...data, password: e.target.value })}
             className="input-login"
           />
-          <p className="p-2">Forgot Password?</p>
+          <p className="p-2" onClick={handleForgotPass}>
+            Forgot Password?
+          </p>
           <button className="button-login" onClick={handleLogin}>
             Sign In
           </button>
