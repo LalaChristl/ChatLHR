@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# HelloFresh Replica
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Team: Hizkiel Mesfin, Lesley-Ann Christl & Rami Basheer
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+![Home Page](../client/src/components/images/homeREADME.png)
 
-### `npm start`
+## Description
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This is replica of a popular website built using React, Node & Tailwind. It includes a registration page, log in page, meal plans page, order processing page, cart function and checkout page.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Live version: https://salara-airline-react-group-project.vercel.app/
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Meals](../client/src/components/images/mealsREADME.png)
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation Instructions
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- clone repository
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Client Folder
 
-### `npm run eject`
+- npm install
+- npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Server Folder
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- npm install
+- npm run dev
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Technologies Used
 
-## Learn More
+- React
+- JavaScript
+- Node JS
+- Express
+- Mongoose
+- MongoDB
+- JWT
+- Tailwind CSS
+- MUI
+- React Icons
+- CSS
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Log In](../client/src/components/images/loginREADME.png)
 
-### Code Splitting
+![Cart](../client/src/components/images/cartREADME.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## Contributors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- [@harshita1225
+  ](https://github.com/harshita1225)
+- [@LalaChristl
+  ](https://github.com/LalaChristl)
+- [@alinaincodeland
+  ](https://github.com/alinaincodeland)
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## More about us
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+We are a group of students persuing our certificate for Full-Stack Web Development. This is our first project incorporating Node with React. We hope you enjoy our website!
