@@ -70,7 +70,8 @@ function Chat() {
             placeholder="Room Id..."
             value={room}
           /> */}
-          <div className="room-input">
+
+          <div className="room-box">
             <label htmlFor="room">Room</label>
             <select
               className="room-select"
@@ -85,11 +86,11 @@ function Chat() {
               <option value="five">Five</option>
               <option value="six">Six</option>
             </select>
-          </div>
 
-          <button className="btn-join-room" onClick={joinRoom}>
-            Join Room
-          </button>
+            <button className="btn-join-room" onClick={joinRoom}>
+              Join Room
+            </button>
+          </div>
         </div>
       )}
       {showChat && (
@@ -97,7 +98,7 @@ function Chat() {
           <ChatHeader />
 
           <ActiveUsers />
-          <div className="send-message-conatiner">
+          <div className="send-message-container">
             <Scroll className="scroll">
               <div className="text-container">
                 {messageArr.map((el, i) => {
