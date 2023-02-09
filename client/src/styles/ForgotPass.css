@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap");
 
-.body-login {
+.forgot-container {
   height: 100%;
   margin: 0;
   background: linear-gradient(to right, #3d2656, #5c72d4);
@@ -10,52 +10,37 @@
   font-family: "Montserrat", sans-serif;
 }
 
-.container-login {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-.container-2-login {
+.forgot-box {
   background-color: rgba(255, 255, 255, 0.6);
   padding: 5rem;
+
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   text-align: center;
-  height: 450px;
+  height: auto;
   width: 500px;
-  margin: auto;
+  margin-top: 300px;
 }
 
-.h1-login {
-  font-size: 3rem;
-  color: rgb(0, 0, 0);
-  margin-bottom: 2rem;
-  text-shadow: 1px 1px rgb(203, 161, 161);
-}
-
-.input-login[type="email"],
-.input-login[type="password"] {
+.forgot-input[type="email"] {
   width: 100%;
   padding: 1.1rem;
   margin-bottom: 2.5rem;
   font-size: 1.5rem;
   border: none;
   border-radius: 5px;
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(248, 239, 239, 0.8);
   color: #333;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s;
 }
 
-.input-login[type="email"]:focus,
-.input-login[type="password"]:focus {
+.forgot-input[type="email"]:focus {
   outline: none;
   box-shadow: 0 4px 6px rgba(255, 255, 255, 0.5);
 }
 
-.button-login {
+.forgot-button {
   padding: 1rem 2rem;
   background-color: #9769c5;
   border: none;
@@ -68,42 +53,19 @@
   margin-top: 16px;
 }
 
-.button-login:hover {
+.forgot-button:hover {
   background-color: #667eea;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-.p-33 {
+.forgot-p {
   font-size: 1.3rem;
   color: #333;
   margin-top: 2rem;
   cursor: pointer;
   text-decoration: underline;
-  padding-top: 70px;
 }
 
-p:hover {
+.forgot-p:hover {
   color: #aa7bd8;
-}
-.p-2 {
-  margin-top: -1rem;
-  padding-right: 270px;
-  font-size: 1.3rem;
-  color: #333;
-}
-
-.p-2:hover {
-  color: #aa7bd8;
-}
-
-
-
-.Toastify__toast-container {
-  top: 100px;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 330px;
-
 }
