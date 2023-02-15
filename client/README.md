@@ -1,20 +1,18 @@
-# HelloFresh Replica
+# ChatLHR
 
 Team: Hizkiel Mesfin, Lesley-Ann Christl & Rami Basheer
 
 ---
 
-![Home Page](../client/src/components/images/homeREADME.png)
+![loginLHR](../client/src/images/loginLHR.png)
 
 ## Description
 
-This is replica of a popular website built using React, Node & Tailwind. It includes a registration page, log in page, meal plans page, order processing page, cart function and checkout page.
-
-Live version: https://salara-airline-react-group-project.vercel.app/
+This is our version of a live chat app. Users can send and receive messages in real-time. It includes a registration page, log in page, join room page, forgot password page, password change and live chat room. Registration sends a verification email and you are able to change your password upon request through email.
 
 ---
 
-![Meals](../client/src/components/images/mealsREADME.png)
+![registerLHR](../client/src/images/registerLHR.png)
 
 ---
 
@@ -30,7 +28,15 @@ Live version: https://salara-airline-react-group-project.vercel.app/
 ### Server Folder
 
 - npm install
+- npm start
+  - or
 - npm run dev
+
+---
+
+![joinroomLHR](../client/src/images/joinroomLHR.png)
+
+![chatroomLHR](../client/src/images/chatroomLHR.png)
 
 ---
 
@@ -38,35 +44,42 @@ Live version: https://salara-airline-react-group-project.vercel.app/
 
 - React
 - JavaScript
-- Node JS
-- Express
-- Mongoose
-- MongoDB
-- JWT
-- Tailwind CSS
-- MUI
 - React Icons
 - CSS
+- Node JS
+- Express
+- MongoDB
+- Axios
+- Mongoose
+- Socket.io
+- CORS
+- Bcrypt
+- JWT
+- Cloudinary
+- Nodemailer
+- Elastic Email SMTP
+- Concurrently
+- react-input-emoji
 
 ---
 
-![Log In](../client/src/components/images/loginREADME.png)
+![forgotpassLHR](../client/src/images/fogotpassLHR.png)
 
-![Cart](../client/src/components/images/cartREADME.png)
+![changepassLHR](../client/src/images/changepassLHR.png)
 
 ---
 
 ## Contributors
 
-- [@harshita1225
-  ](https://github.com/harshita1225)
+- [@ezekielbuzzi
+  ](https://github.com/ezekielbuzzi)
 - [@LalaChristl
   ](https://github.com/LalaChristl)
-- [@alinaincodeland
-  ](https://github.com/alinaincodeland)
+- [@Rami666
+  ](https://github.com/Rami666)
 
 ---
 
 ## More about us
 
-We are a group of students persuing our certificate for Full-Stack Web Development. This is our first project incorporating Node with React. We hope you enjoy our website!
+We are a group of students persuing our certificate for Full-Stack Web Development. This is a project incorporating Node, React and Socket.io as well as using Cloudinary and SMTP. We hope you enjoy our app!

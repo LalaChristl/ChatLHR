@@ -72,7 +72,7 @@ function Chat() {
           /> */}
 
           <div className="room-box">
-            <label htmlFor="room">Room</label>
+            <label htmlFor="room">ChatLHR Rooms</label>
             <select
               className="room-select"
               name="room"
