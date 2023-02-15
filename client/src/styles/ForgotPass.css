@@ -25,6 +25,7 @@
 .forgot-input[type="email"] {
   width: 100%;
   padding: 1.1rem;
+  margin-top: 2.5rem;
   margin-bottom: 2.5rem;
   font-size: 1.5rem;
   border: none;

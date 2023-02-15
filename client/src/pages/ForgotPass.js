@@ -7,18 +7,18 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const notify = () =>
-toast.info("We have sent you an email with instructions about how to change your password", {
-  autoClose: 5000,
-  hideProgressBar: false,
-  closeOnClick: true,
-  pauseOnHover: true,
-  draggable: true,
-  progress: undefined,
-  theme: "colored",
-  });
-
-
-
+  toast.info(
+    "We have sent you an email with instructions about how to change your password",
+    {
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    }
+  );
 
 const ForgotPass = () => {
   const navigate = useNavigate();
@@ -30,8 +30,7 @@ const ForgotPass = () => {
     const response = await axios.post("/users/forgotpass", data);
     console.log("🦩 ~ handleSubmit ~ response", response);
 
-    if (response.data.status === "success")
-      notify();
+    if (response.data.status === "success") notify();
   };
 
   const handleNavLogin = () => {
@@ -41,6 +40,7 @@ const ForgotPass = () => {
   return (
     <div className="forgot-container">
       <div className="forgot-box">
+        <p>Please enter you email</p>
         <input
           type="email"
           name="email"
@@ -53,7 +53,9 @@ const ForgotPass = () => {
           Submit
         </button>
 
-        <p className="forgot-p" onClick={handleNavLogin}>Login</p>
+        <p className="forgot-p" onClick={handleNavLogin}>
+          Login
+        </p>
         <ToastContainer />
       </div>
     </div>
