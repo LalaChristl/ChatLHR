@@ -4,7 +4,7 @@ Team: Hizkiel Mesfin, Lesley-Ann Christl & Rami Basheer
 
 ---
 
-![loginLHR](../client/src/images/loginLHR.png)
+![loginLHR](./client/src/images/loginLHR.png)
 
 ## Description
 
@@ -12,7 +12,7 @@ This is our version of a live chat app. Users can send and receive messages in r
 
 ---
 
-![registerLHR](../client/src/images/registerLHR.png)
+![registerLHR](./client/src/images/registerLHR.png)
 
 ---
 
@@ -34,9 +34,9 @@ This is our version of a live chat app. Users can send and receive messages in r
 
 ---
 
-![joinroomLHR](../client/src/images/joinroomLHR.png)
+![joinroomLHR](./client/src/images/joinroomLHR.png)
 
-![chatroomLHR](../client/src/images/chatroomLHR.png)
+![chatroomLHR](./client/src/images/chatroomLHR.png)
 
 ---
 
@@ -63,9 +63,9 @@ This is our version of a live chat app. Users can send and receive messages in r
 
 ---
 
-![forgotpassLHR](../client/src/images/fogotpassLHR.png)
+![forgotpassLHR](./client/src/images/fogotpassLHR.png)
 
-![changepassLHR](../client/src/images/changepassLHR.png)
+![changepassLHR](./client/src/images/changepassLHR.png)
 
 ---
 
